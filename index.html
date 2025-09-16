@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discover Thailand — The Land of Smiles</title>
+  <meta name="description" content="A modern, responsive travel website showcasing Thailand: destinations, culture & food, travel tips, gallery, and useful links." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b132b;          /* deep navy */
+      --bg-2:#1c2541;        /* dark blue */
+      --accent:#f5b301;      /* thai gold */
+      --accent-2:#00a8cc;    /* tropical teal */
+      --text:#f8fafc;        /* near white */
+      --muted:#cbd5e1;       /* slate */
+      --card:#111827cc;      /* translucent card */
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:18px;
+      --radius-sm:12px;
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg-2));color:var(--text);font-family:Poppins,system-ui,-apple-system,Segoe UI,Inter,Roboto,"Helvetica Neue",Arial,sans-serif}
+    a{color:inherit}
+    img{max-width:100%;display:block;border-radius:var(--radius-sm)}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,19,43,.72);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff18}
+    .nav-inner{max-width:var(--maxw);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ffd24a);display:grid;place-items:center;color:#111827;font-weight:800}
+    .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+    .nav a{padding:10px 14px;border-radius:12px;text-decoration:none;color:var(--text);opacity:.9}
+    .nav a:hover{background:#ffffff14}
+    .menu-btn{display:none;border:1px solid #ffffff2a;border-radius:12px;padding:8px 12px;background:transparent;color:var(--text)}
+    @media (max-width:860px){
+      .nav ul{display:none}
+      .menu-btn{display:inline-flex;align-items:center;gap:8px}
+    }
+
+    /* HERO */
+    .hero{position:relative;isolation:isolate}
+    .hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;z-index:-2}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0008,#000b);z-index:-1}
+    .hero-inner{max-width:var(--maxw);margin:auto;padding:110px 20px 80px;display:grid;gap:26px}
+    .kicker{display:inline-flex;align-items:center;gap:8px;background:#ffffff14;border:1px solid #ffffff1f;border-radius:999px;padding:6px 12px;font-size:.9rem}
+    .hero h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.08;margin:6px 0}
+    .hero p{max-width:780px;color:#e5e7eb}
+    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+    .btn{appearance:none;border:none;border-radius:14px;padding:12px 18px;font-weight:700;cursor:pointer}
+    .btn.gold{background:linear-gradient(135deg,var(--accent),#ffd24a);color:#111827}
+    .btn.ghost{background:transparent;border:1px solid #ffffff33;color:var(--text)}
+
+    /* SECTIONS */
+    section{max-width:var(--maxw);margin:60px auto;padding:0 20px}
+    .section-title{display:flex;align-items:center;gap:12px;margin:0 0 18px}
+    .section-title .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+    h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin:0}
+    .sub{color:var(--muted);margin-top:6px}
+
+    /* HIGHLIGHTS */
+    .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid #ffffff10;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:6px 0 6px;font-size:1.08rem}
+    .card p{color:#e5e7eb}
+    .icon{width:24px;height:24px;display:inline-block;margin-right:8px}
+    @media (max-width:920px){.highlights{grid-template-columns:1fr 1fr}}
+    @media (max-width:620px){.highlights{grid-template-columns:1fr}}
+
+    /* DESTINATIONS */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:980px){.grid-3{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.grid-3{grid-template-columns:1fr}}
+    .dest .thumb{aspect-ratio:16/10;overflow:hidden}
+    .tag{display:inline-flex;gap:6px;align-items:center;background:#ffffff14;border:1px solid #ffffff25;border-radius:999px;padding:6px 10px;font-size:.85rem;margin-top:10px}
+
+    /* CULTURE & FOOD */
+    .split{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    @media (max-width:900px){.split{grid-template-columns:1fr;}}
+    .list{display:grid;gap:10px;margin-top:10px}
+    .list li{background:#ffffff0f;border:1px solid #ffffff1a;padding:10px 12px;border-radius:12px}
+
+    /* TIPS */
+    .tips{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    @media (max-width:1100px){.tips{grid-template-columns:1fr 1fr}}
+    @media (max-width:620px){.tips{grid-template-columns:1fr}}
+
+    /* GALLERY */
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+    .gallery .g{grid-column:span 2}
+    .gallery .g.tall{grid-row:span 2}
+    .gallery img{height:100%;width:100%;object-fit:cover}
+    @media (max-width:1100px){.gallery{grid-template-columns:repeat(4,1fr)}.gallery .g{grid-column:span 2}}
+    @media (max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery .g{grid-column:span 1}}
+
+    /* LINKS */
+    .links{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .links a.item{display:flex;align-items:center;gap:12px;background:#ffffff0f;border:1px solid #ffffff20;padding:14px 16px;border-radius:14px;text-decoration:none}
+    .links a.item:hover{background:#ffffff19}
+    @media (max-width:760px){.links{grid-template-columns:1fr}}
+
+    /* FOOTER */
+    footer{max-width:var(--maxw);margin:50px auto 30px;padding:0 20px;color:#94a3b8}
+    .foot{display:flex;justify-content:space-between;gap:14px;align-items:center;border-top:1px dashed #ffffff25;padding-top:14px}
+    .to-top{border:1px solid #ffffff33;background:transparent;color:var(--text);border-radius:999px;padding:8px 12px}
+
+    /* UTIL */
+    .muted{color:#cbd5e1}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand"><div class="logo">TH</div> Thailand Travel</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰ Menu</button>
+      <ul id="menu">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#culture">Culture & Food</a></li>
+        <li><a href="#tips">Travel Tips</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#links">Useful Links</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero-inner">
+      <span class="kicker">🇹🇭 The Land of Smiles</span>
+      <h1>Discover Thailand — temples, islands, street food, and warm hospitality</h1>
+      <p>Plan an unforgettable journey across Bangkok’s glittering palaces, Chiang Mai’s mountain temples, and the crystal‑clear waters of the Andaman Sea. This guide highlights the best places to visit, essential tips, and cultural insights to help you travel smart.</p>
+      <div class="cta">
+        <a href="#destinations" class="btn gold">Explore Destinations</a>
+        <a href="#tips" class="btn ghost">Read Travel Tips</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights">
+    <div class="section-title"><span class="dot"></span><h2>Trip Highlights</h2></div>
+    <p class="sub">A quick snapshot of what makes Thailand special.</p>
+    <div class="highlights">
+      <div class="card">
+        <h3>🏛️ Glittering Temples</h3>
+        <p>Marvel at the Grand Palace, Wat Pho’s reclining Buddha, and riverside Wat Arun at sunset.</p>
+      </div>
+      <div class="card">
+        <h3>🏝️ Tropical Beaches</h3>
+        <p>Island‑hop around Phuket, Krabi, and Koh Phi Phi — limestone cliffs, turquoise water, and powdery sand.</p>
+      </div>
+      <div class="card">
+        <h3>🍜 Legendary Street Food</h3>
+        <p>Pad Thai, green curry, mango sticky rice — best enjoyed at bustling night markets and street stalls.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section id="destinations">
+    <div class="section-title"><span class="dot"></span><h2>Top Destinations</h2></div>
+    <p class="sub">Mix city energy with serene temples and island time.</p>
+    <div class="grid-3">
+  <!-- Bangkok -->
+  <article class="card dest">
+    <div class="thumb">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Grand_Palace_Bangkok.jpg"
+        alt="Bangkok skyline and temples (Grand Palace)"
+      />
+    </div>
+    <h3>Bangkok</h3>
+    <p>Thailand’s capital blends royal heritage with modern life — visit the Grand Palace, Wat Pho, and the Chao Phraya riverfront.</p>
+    <span class="tag">City • Temples • Markets</span>
+  </article>
+
+  <!-- Phuket & Krabi (Railay Beach) -->
+  <article class="card dest">
+    <div class="thumb">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/3/33/Railay_West_%2831699911521%29.jpg"
+        alt="Phuket & Krabi — Railay Beach long-tail boats"
+      />
+    </div>
+    <h3>Phuket & Krabi</h3>
+    <p>Gateway to the Andaman Sea — discover Phi Phi, Railay Beach, and Phang Nga Bay’s iconic karst towers.</p>
+    <span class="tag">Beaches • Snorkel • Island-hopping</span>
+  </article>
+
+  <!-- Chiang Mai (Yi Peng Lanterns) -->
+  <article class="card dest">
+    <div class="thumb">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/2/22/Yi_peng_sky_lantern_festival_San_Sai_Thailand.jpg"
+        alt="Chiang Mai temple and Yi Peng lanterns"
+      />
+    </div>
+    <h3>Chiang Mai</h3>
+    <p>Northern charm: mountain temples, artisan markets, and ethical elephant sanctuaries. Visit during Yi Peng lantern festival.</p>
+    <span class="tag">Culture • Nature • Crafts</span>
+  </article>
+</div>
+
+
+  <!-- CULTURE & FOOD -->
+  <section id="culture">
+    <div class="section-title"><span class="dot"></span><h2>Culture & Food</h2></div>
+    <div class="split">
+      <div class="card">
+        <h3>Traditions & Festivals</h3>
+        <ul class="list">
+          <li><strong>Songkran (Thai New Year):</strong> nationwide water festivities each April.</li>
+          <li><strong>Loy Krathong & Yi Peng:</strong> floating offerings and lantern‑lit skies in November.</li>
+          <li><strong>Temple Etiquette:</strong> dress modestly; remove shoes; be respectful around monks.</li>
+        </ul>
+        <h3 style="margin-top:14px">Cuisine</h3>
+        <ul class="list">
+          <li><strong>Street Classics:</strong> Pad Thai, Som Tam (papaya salad), Mango Sticky Rice.</li>
+          <li><strong>Curry Favourites:</strong> Green, Red, and Massaman curries with fragrant jasmine rice.</li>
+          <li><strong>Market Drinks:</strong> Thai iced tea & fresh coconut.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1887&auto=format&fit=crop" alt="Thai street food market at night" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section id="tips">
+    <div class="section-title"><span class="dot"></span><h2>Travel Tips</h2></div>
+    <div class="tips">
+      <div class="card"><h3>🗓️ Best Time</h3><p>Cool & dry season from <strong>November to February</strong> offers pleasant weather across most regions.</p></div>
+      <div class="card"><h3>🚇 Getting Around</h3><p>Use BTS/MRT in Bangkok; tuk‑tuks for short hops (agree price first); ferries for river and islands.</p></div>
+      <div class="card"><h3>🙏 Temple Dress Code</h3><p>Cover shoulders & knees; carry a light scarf. Remove shoes before entering temple buildings.</p></div>
+      <div class="card"><h3>💡 Smart & Safe</h3><p>Use official taxis or apps; beware common scams; stay hydrated; carry small cash for markets.</p></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+<section id="gallery">
+  <div class="section-title"><span class="dot"></span><h2>Photo Gallery</h2></div>
+  <p class="sub">Royal palaces, island blues, and night-market vibes.</p>
+  <div class="gallery">
+    <div class="g tall">
+      <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1200&auto=format&fit=crop" alt="Wat Arun at sunset"/>
+    </div>
+    <div class="g">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Long-tail boats"/>
+    </div>
+     <div class="g">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Grand_Palace_Bangkok.jpg" alt="Grand Palace Bangkok"/>
+  </div>
+    <div class="g tall">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="Railay cliffs"/>
+    </div>
+    <div class="g">
+      <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1200&auto=format&fit=crop" alt="Thai curry"/>
+    </div>
+    <div class="g">
+      <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop" alt="Mango sticky rice"/>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- LINKS -->
+  <section id="links">
+    <div class="section-title"><span class="dot"></span><h2>Useful Links</h2></div>
+    <div class="links">
+      <a class="item" href="https://www.tourismthailand.org/" target="_blank" rel="noopener">🇹🇭 Official Tourism Authority of Thailand</a>
+      <a class="item" href="https://www.gov.uk/foreign-travel-advice/thailand" target="_blank" rel="noopener">🛡️ UK Foreign Travel Advice — Thailand</a>
+      <a class="item" href="https://www.bangkok.com/" target="_blank" rel="noopener">🗺️ Bangkok City Guide</a>
+      <a class="item" href="https://www.phuket.com/" target="_blank" rel="noopener">🏝️ Phuket Guide</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <p>© 2025 Thailand Travel Project — Glasgow Clyde College</p>
+      <p>GROUP 2-DUNIA-HELAL-SERHII-MOHAMMED</p>
+      <a class="to-top" href="#hero">↑ Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+    // Simple mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    btn?.addEventListener('click',()=>{
+      const shown = getComputedStyle(menu).display !== 'none';
+      menu.style.display = shown ? 'none' : 'flex';
+      menu.style.flexDirection = 'column';
+      menu.style.gap = '8px';
+      menu.style.background = 'rgba(11,19,43,.92)';
+      menu.style.position = 'absolute';
+      menu.style.right = '20px';
+      menu.style.top = '58px';
+      menu.style.padding = '12px';
+      menu.style.border = '1px solid #ffffff25';
+      menu.style.borderRadius = '12px';
+    });
+  </script>
+</body>
+</html>
