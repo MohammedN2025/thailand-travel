@@ -21,6 +21,9 @@
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --border: 1px solid #e2e8f0;
             --nav-bg: rgba(255, 255, 255, 0.8);
+            --menu-panel-bg: rgba(255, 255, 255, 0.92); /* خلفية فاتحة نصف شفافة */
+            --menu-panel-text: #0b132b;                 /* نص داكن واضح */
+            --menu-panel-border: #e2e8f0;               /* حد فاتح */
         }
 
         /* Dark Mode Colors */
@@ -35,6 +38,9 @@
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             --border: 1px solid #ffffff1a;
             --nav-bg: rgba(11, 19, 43, 0.72);
+            --menu-panel-bg: rgba(11, 19, 43, 0.92);    /* خلفية غامقة نصف شفافة */
+            --menu-panel-text: #f8fafc;                 /* نص أبيض */
+            --menu-panel-border: #ffffff25;             /* حد فاتح شفاف */
         }
 
         /* General styles, your original code */
@@ -136,24 +142,26 @@
 /* On smaller screens (mobile), we hide the links and show the "Menu" button */
 @media (max-width: 860px) {
     .nav ul {
-        display: none; /* Hide the main list of links */
+        display: none; /* أخفِ الروابط على الديسكتوب */
     }
     .menu-btn {
-        display: inline-flex; /* Show the Menu button */
+        display: inline-flex;
         align-items: center;
         gap: 8px;
     }
-    /* This makes the mobile menu appear correctly when toggled */
     .nav ul.is-visible {
         display: flex;
         flex-direction: column;
         position: absolute;
         top: 58px;
         right: 20px;
-        background: rgba(11, 19, 43, .92);
+        background: var(--menu-panel-bg);         /* استخدم اللون المناسب */
         padding: 12px;
         border-radius: 12px;
-        border: 1px solid #ffffff25;
+        border: 1px solid var(--menu-panel-border);/* استخدم الحد المناسب */
+    }
+    .nav ul.is-visible a {
+        color: var(--menu-panel-text) !important; /* غيّر لون النص للوضوح */
     }
     .nav li {
         margin: 0;
