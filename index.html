@@ -173,13 +173,22 @@
         .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #0008, #000b); z-index: -1; }
         .hero-inner { max-width: var(--maxw); margin: auto; padding: 110px 20px 80px; display: grid; gap: 26px; }
         .kicker { display: inline-flex; align-items: center; gap: 8px; background: #ffffff14; border: 1px solid #ffffff1f; border-radius: 999px; padding: 6px 12px; font-size: .9rem; }
+        .kicker {
+    color: #f8fafc; /* نص فاتح أيضاً لشريط الكِيكَر */
+}
         .hero h1 { font-size: clamp(2rem, 6vw, 3.6rem); line-height: 1.08; margin: 6px 0; }
+        .hero h1 {
+    color: #f8fafc; /* نص فاتح ليتباين مع الخلفية الداكنة */
+}
         .hero p { max-width: 780px; color: #e5e7eb; }
         .cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
         .btn { appearance: none; border: none; border-radius: 14px; padding: 12px 18px; font-weight: 700; cursor: pointer; }
         .btn.gold { background: linear-gradient(135deg, var(--accent), #ffd24a); color: #111827; }
         .btn.ghost { background: transparent; border: 1px solid #ffffff33; color: var(--text); }
-
+        .btn.ghost {
+    color: #ffffff !important;    /* نص أبيض واضح */
+    border-color: #ffffff33;      /* نفس درجة حدودك السابقة */
+}
         /* SECTIONS */
         section { max-width: var(--maxw); margin: 60px auto; padding: 0 20px; }
         .section-title { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; }
@@ -353,7 +362,7 @@
                 </ul>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1887&auto=format&fit=crop" alt="Thai street food market at night" />
+                <img src="https://t4.ftcdn.net/jpg/08/93/05/41/360_F_893054119_V3JrGm0yywdc32nKKIMMZ0ycKJfDTiYL.jpg" alt="Thai street food market at night" />
             </div>
         </div>
     </section>
@@ -376,19 +385,19 @@
                 <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1200&auto=format&fit=crop" alt="Wat Arun at sunset"/>
             </div>
             <div class="g">
-                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Long-tail boats"/>
+                <img src="https://www.internationalcitizens.com/wp-content/uploads/bb-plugin/cache/ladies-who-moved-abroad-to-thailand-MS2QVJZKDR-scaled-panorama-d31b8543b199090d27ba844dbe755b80-ahkzodq01mpt.jpg" alt="ladies-who-moved-abroad-to-thailand"/>
             </div>
             <div class="g">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Grand_Palace_Bangkok.jpg" alt="Grand Palace Bangkok"/>
             </div>
             <div class="g tall">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="Railay cliffs"/>
+                <img src="https://brideswithoutborders.com/wp-content/uploads/2019/11/pansea-beach_thailand.jpg" alt="Railay cliffs"/>
             </div>
             <div class="g">
                 <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1200&auto=format&fit=crop" alt="Thai curry"/>
             </div>
             <div class="g">
-                <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop" alt="Mango sticky rice"/>
+                <img src="https://www.gannett-cdn.com/-mm-/3abcbee34a5e1bcc5145b009547f6b74a126bc49/c=288-0-3432-2364/local/-/media/2016/02/12/USATODAY/USATODAY/635908723503142355-N100412-THAI10-PG-HORIZONTAL-30652227.JPG?width=2560" alt="Songkran-Festival-with-Aleenta-Phuket"/>
             </div>
         </div>
     </section>
